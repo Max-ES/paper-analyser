@@ -1,0 +1,50 @@
+{
+  "perception": [
+    "perceive",
+    "acquire",
+    "recognize"
+  ],
+  "internal_processing": [
+    "learn",
+    "adapt",
+    "solve",
+    "achieve",
+    "understand",
+    "find",
+    "maintain",
+    "improve",
+    "evolve",
+    "think",
+    "explain",
+    "generate",
+    "reason",
+    "plan",
+    "predict"
+  ],
+  "action": [
+    "act",
+    "exhibit",
+    "behave",
+    "change",
+    "perform",
+    "pursue",
+    "communicate",
+    "interact",
+    "execute",
+    "respond"
+  ],
+  "nouns": [
+    "machine",
+    "ability",
+    "human",
+    "environment",
+    "goal"
+  ],
+  "adjectives": [
+    "human",
+    "cognitive",
+    "general",
+    "artificial",
+    "high"
+  ]
+}
