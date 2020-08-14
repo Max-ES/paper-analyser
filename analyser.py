@@ -8,9 +8,9 @@ import numpy as np
 
 
 class Analyser:
-    def __init__(self, data_folder_path):
+    def __init__(self, data_folder_path, ignore_years=[]):
         self.data_folder_path = data_folder_path
-        self.years_to_ignore = ["1979", "2001"]
+        self.years_to_ignore = ignore_years
 
     def get_available_years(self):
         os.chdir(self.data_folder_path)

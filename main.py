@@ -46,7 +46,7 @@ def create_word_count_json_for_one_year(folder_path, out_file_folder_path, year)
 # create_word_count_json_for_one_year("C:/dev/Intelligenzforschung/IJCAI_pdfs/2001_IJCAI/", "C:/dev/Intelligenzforschung/paper analyser/data/", 2001)
 
 # chart creation functions
-analyser = Analyser("C:/dev/Intelligenzforschung/paper analyser/data/")
+analyser = Analyser("C:/dev/Intelligenzforschung/paper analyser/data/", ["1979", "2001"])
 
 def create_charts_percentage_papers_containing_word(path):
     with open("words.json", 'r') as json_file:
