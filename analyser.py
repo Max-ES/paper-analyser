@@ -35,10 +35,11 @@ class Analyser:
 
     def create_chart_total_papers_per_year(self, save_to_path=None):
         plt.xticks(rotation=90)
-        plt.subplots_adjust(bottom=0.2, left=0.125, right=0.99, top=0.99)
+        plt.subplots_adjust(bottom=0.15, left=0.15, right=0.95, top=0.92)
 
-        plt.xlabel('year')
-        plt.ylabel('amount of papers')
+        plt.title('Total amount of papers per year')
+        plt.xlabel('Year')
+        plt.ylabel('Papers')
 
         x = []
         y = []
@@ -55,10 +56,11 @@ class Analyser:
 
     def create_chart_percentage_of_papers_that_contain_the_word(self, search_word, save_to_path=None):
         plt.xticks(rotation=90)
-        plt.subplots_adjust(bottom=0.2, left=0.125, right=0.99, top=0.99)
+        plt.subplots_adjust(bottom=0.15, left=0.09, right=0.98, top=0.94)
 
-        plt.xlabel('time in years')
-        plt.ylabel('papers containing the word ' + search_word + " in %")
+        plt.title('Papers containing the word "' + search_word + '"')
+        plt.xlabel('Years')
+        plt.ylabel('Papers in %')
 
         x = []
         y = []
@@ -83,6 +85,45 @@ class Analyser:
             plt.show()
         else:
             plt.savefig(save_to_path + 'papers_containing_' + search_word + '.png')
+        plt.clf()
+
+    def create_linegraph_percentage_of_papers_that_contain_the_words(self, word_list, save_to_path=None, out_file_name="papers_containing_keywords.png"):
+        plt.xticks(rotation=90)
+        plt.subplots_adjust(bottom=0.15, left=0.09, right=0.75, top=0.94)
+
+        plt.title('Papers containing specific keywords')
+        plt.xlabel('Years')
+        plt.ylabel('Papers in %')
+
+        years = self.get_available_years_without_years_to_ignore()
+        data = np.zeros((len(word_list), len(years)))
+
+        for year_index, year in enumerate(years):
+            papers = self.get_data_from_year(year)
+            total_papers = len(papers)
+            word_occurrences = self.list_to_dict(word_list)
+            for paper in papers:
+                key = list(paper.keys())[0]
+                word_count = paper[key]
+                for word, frequency in word_count:
+                    for search_word in word_list:
+                        if search_word == word:
+                            word_occurrences[search_word] += 1
+                            break
+            for word_list_index, word in enumerate(word_list):
+                percentage = (word_occurrences[word] / total_papers) * 100
+                data[word_list_index][year_index] = percentage
+
+        #plot it
+        for word_index, word in enumerate(word_list):
+            plt.plot(years, data[word_index], label=word)
+
+        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+
+        if save_to_path is None:
+            plt.show()
+        else:
+            plt.savefig(save_to_path + out_file_name)
         plt.clf()
 
     def create_chart_heatmap_of_word_frequency(self, word_list, save_to_path=None, name="heatmap_word_frequency"):

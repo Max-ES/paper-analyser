@@ -1,15 +1,15 @@
 {
   "perception": [
-    "perceive",
+    "recognize",
     "acquire",
-    "recognize"
+    "perceive"
   ],
   "internal_processing": [
     "learn",
-    "adapt",
-    "solve",
     "achieve",
+    "solve",
     "understand",
+    "adapt",
     "find",
     "maintain",
     "improve",
@@ -22,11 +22,11 @@
     "predict"
   ],
   "action": [
+    "perform",
+    "change",
     "act",
     "exhibit",
     "behave",
-    "change",
-    "perform",
     "pursue",
     "communicate",
     "interact",
