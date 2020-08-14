@@ -43,7 +43,7 @@ def create_word_count_json_for_one_year(folder_path, out_file_folder_path, year)
 
 
 # create_word_count_json_for_IJCAI_documents("C:/dev/Intelligenzforschung/IJCAI_pdfs/", "C:/dev/Intelligenzforschung/paper analyser/data/")
-#create_word_count_json_for_one_year("C:/dev/Intelligenzforschung/IJCAI_pdfs/2001_IJCAI/", "C:/dev/Intelligenzforschung/paper analyser/data/", 2001)
+# create_word_count_json_for_one_year("C:/dev/Intelligenzforschung/IJCAI_pdfs/2001_IJCAI/", "C:/dev/Intelligenzforschung/paper analyser/data/", 2001)
 
 # chart creation functions
 analyser = Analyser("C:/dev/Intelligenzforschung/paper analyser/data/")
@@ -66,6 +66,8 @@ def create_linegraph_charts_percentage_papers_containing_words(path):
                                                                           "papers_containing_" + "action" + "_keywords.png")
     analyser.create_linegraph_percentage_of_papers_that_contain_the_words(words["internal_processing"][:5], path,
                                                                           "papers_containing_" + "internal_processing" + "_keywords.png")
+    analyser.create_linegraph_percentage_of_papers_that_contain_the_words(words["keywords"], path,
+                                                                          "papers_containing_keywords.png")
 
 def create_word_frequency_heatmaps(path):
     with open("words.json", 'r') as json_file:
@@ -76,5 +78,5 @@ def create_word_frequency_heatmaps(path):
 
 # analyser.create_chart_total_papers_per_year("C:/dev/Intelligenzforschung/charts/")
 # create_charts_percentage_papers_containing_word("C:/dev/Intelligenzforschung/charts/")
-create_linegraph_charts_percentage_papers_containing_words("C:/dev/Intelligenzforschung/charts/")
-#create_word_frequency_heatmaps("C:/dev/Intelligenzforschung/charts/")
+# create_linegraph_charts_percentage_papers_containing_words("C:/dev/Intelligenzforschung/charts/")
+create_word_frequency_heatmaps("C:/dev/Intelligenzforschung/charts/")

@@ -163,7 +163,9 @@ class Analyser:
             plt.savefig(save_to_path + name + '.png')
         plt.clf()
 
-# helper heatmap function
+
+# helper heatmap functions from
+# https://matplotlib.org/3.1.1/gallery/images_contours_and_fields/image_annotated_heatmap.html
 def heatmap(data, row_labels, col_labels, ax=None,
             cbar_kw={}, cbarlabel="", **kwargs):
     """

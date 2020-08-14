@@ -33,7 +33,7 @@ class PdfMiner:
     def get_word_count_from_pdf(self, path):
         text = self.get_pdf_text(path)
         text = self.filter_symbols(text)
-        text = self.filter_stop_words(text)
+        # text = self.filter_stop_words(text)
         return self.get_word_count(text)
 
     def get_word_count_from_all_pdfs_in_folder(self, path):
